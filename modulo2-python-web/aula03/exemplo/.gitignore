@@ -1,0 +1,108 @@
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ambientes virtuais
+venv/
+env/
+.venv/
+.env/
+ENV/
+env.bak/
+venv.bak/
+myenv/
+
+# ============================================
+# Visual Studio Code
+# ============================================
+.vscode/
+
+# ============================================
+# Sistema Operacional (Windows)
+# ============================================
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# ============================================
+# macOS (se algum aluno usar)
+# ============================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ============================================
+# Linux
+# ============================================
+*~
+
+# ============================================
+# Git
+# ============================================
+*.orig
+
+# ============================================
+# Arquivos de ambiente e configuração
+# ============================================
+.env
+.env.local
+.env.*.local
+*.local
+
+# ============================================
+# Logs e arquivos temporários
+# ============================================
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+.cache/
+
+# ============================================
+# Banco de dados SQLite (se usarem)
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Node (se usarem npm no futuro)
+# ============================================
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ============================================
+# Arquivos de IDE (editores no geral)
+# ============================================
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+*.iml
