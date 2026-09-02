@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, ConfigDict
 from typing import Optional
 from enum import Enum
 
@@ -12,6 +12,15 @@ class CargoEnum(str, Enum):
 
 # Schema de entrada: o que o cliente envia (SEM id)
 class UsuarioEntrada (BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={'example':{
+            'nome': 'Max Muller',
+            'email': 'max@email.com',
+            'cargo': 'Dev',
+            'ativo': True,
+            'salario': 4500.0
+        }}
+    )
     nome: str
     email: str
     cargo: str
