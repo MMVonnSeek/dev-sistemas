@@ -5,14 +5,14 @@ from app.models import UsuarioEntrada, UsuarioSaida, UsuarioParcial
 # O router substitui o 'app' para as rotas deste arquivo
 # prefix='/usuarios': todas as rotas começam com /usuarios
 # tags=['Usuários']: agrupa as rotas no Swagger
-router = APIRouter(prefix='usuarios', tags=['Usuários'])
+router = APIRouter(prefix='/usuarios', tags=['Usuários'])
 
 # Banco Simulado - mesmo que tinhamos no main.py
 banco: list[UsuarioSaida] = [
     UsuarioSaida(id=1, nome='Fulano', email='fulano@email.com', 
                  cargo='Dev', ativo=True, salario=4500.0),
     UsuarioSaida(id=2, nome='Beltrano', email='beltrano@email.com', 
-                 cargo='Design', ativo=True, salario=3500.0),
+                 cargo='Designer', ativo=True, salario=3500.0),
     UsuarioSaida(id=3, nome='Sicrano', email='sicrano@email.com', 
                  cargo='QA', ativo=False, salario=3200.0),
 ]
@@ -69,7 +69,7 @@ def atulizar_usuario(
     raise HTTPException(404, 'Não Encontrado')
 
 # PATH /usuarios/{usuario_id} - Atualiza campos específicos
-@router.path('/{usuario_id}', response_model=UsuarioSaida)
+@router.patch('/{usuario_id}', response_model=UsuarioSaida)
 def atualizar_parcial(
     usuario_id: Annotated[int, Path(ge=1)],
     dados: UsuarioParcial
