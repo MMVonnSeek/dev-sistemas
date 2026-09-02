@@ -90,5 +90,5 @@ def deletar_usuario(
     for valor, user in enumerate(banco):
         if user.id == usuario_id:
             banco.pop(valor)
-            return Response(status_cpde=204)
+            return Response(status_code=204)
         raise HTTPException(404, 'Não encontrado')
