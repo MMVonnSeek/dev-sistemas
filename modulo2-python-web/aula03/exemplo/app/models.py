@@ -35,3 +35,11 @@ class UsuarioSaida(BaseModel):
     ativo: bool
     salario: Optional [float] = None
 
+# Schema para atualização parcial (PATCH)
+# Todos os campos são Optional - o cliente envia só o que quer mudar
+class UsuarioParcial(BaseModel):
+    nome: Optional[str] = None
+    email: Optional[str] = None
+    cargo: Optional[CargoEnum] = None
+    ativo: Optional[bool] = None
+    salario: Optional[float] = None
