@@ -165,17 +165,11 @@ Testar todas as novas rotas no Swagger antes de atualizar o front-end
 
 Envie o **link do repositório** pelo **Google Classroom**.
 
----
-
-
-
----
 
 <div align="center">
 
 **Bom trabalho! 🚀**
 
-</div>
 
 ---
 
@@ -185,3 +179,5 @@ Envie o **link do repositório** pelo **Google Classroom**.
 Professor · SENAI-DF
 
 [![GitHub](https://img.shields.io/badge/GitHub-MMVonnSeek-181717?style=flat&logo=github)](https://github.com/MMVonnSeek)
+
+</div>
