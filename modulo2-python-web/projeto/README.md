@@ -16,9 +16,8 @@ Trabalhando nos arquivos da pasta `projeto`, adicione as seguintes funcionalidad
 
 ```
 git clone https://github.com/MMVonnSeek/dev-sistemas.git
-cd modulo2-python-web/
+cd modulo2-python-web
 cd projeto
-
 ```
 
 ----------
