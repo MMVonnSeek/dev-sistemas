@@ -4,7 +4,7 @@
 
 [![Curso](https://img.shields.io/badge/Curso-Desenvolvimento_de_Sistemas-009688?style=for-the-badge)](https://github.com/mmvonnseek/uc-desenvolvimento-apis)
 [![Instituição](https://img.shields.io/badge/Instituição-SENAI-orange?style=for-the-badge)](https://github.com/mmvonnseek/uc-desenvolvimento-apis)
-[![Professor](https://img.shields.io/badge/Professor-Max_Muller-black?style=for-the-badge)](https://github.com/MMVonnSeek)
+[![Professor](https://img.shields.io/badge/Professor-Max_Muller-black?style=for-the-badge&logo=redhat&logoColor=white)](https://github.com/MMVonnSeek)
 [![Python](https://img.shields.io/badge/Python-3.10+-00bfe3?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 ----------
 
