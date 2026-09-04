@@ -175,8 +175,9 @@ Envie o **link do repositório** pelo **Google Classroom**.
 
 ## Autor
 
-**Max Muller**
-Professor · SENAI-DF
+**Max Muller** ☕
+
+Professor · SENAI-DF 
 
 [![GitHub](https://img.shields.io/badge/GitHub-MMVonnSeek-181717?style=flat&logo=github)](https://github.com/MMVonnSeek)
 
