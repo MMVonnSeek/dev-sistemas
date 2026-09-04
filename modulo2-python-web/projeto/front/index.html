@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciador de Tarefas</h1>
+        <div id="resumo" class="resumo"></div>
+    </header>
+    <main>
+        <section class="painel-filtros">
+            <select id="filtro-status">
+                <option value="">Todos os status</option>
+                <option value="pendente">Pendente</option>
+                <option value="em_andamento">Em andamento</option>
+                <option value="concluida">Concluida</option>
+                <option value="cancelada">Cancelada</option>
+            </select>
+            <select id="filtro-prioridade">
+                <option value="">Todas as prioridades</option>
+                <option value="baixa">Baixa</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+                <option value="critica">Critica</option>
+            </select>
+            <button id="btn-filtrar">Filtrar</button>
+            <button id="btn-nova">+ Nova tarefa</button>
+        </section>
+        <section id="loading" class="estado">Carregando tarefas...</section>
+        <section id="erro"  class="estado estado-erro hidden"></section>
+        <section id="lista" class="grade hidden"></section>
+        <dialog id="modal-tarefa">
+            <form id="form-tarefa">
+                <h2>Nova Tarefa</h2>
+                <div class="campo">
+                    <label for="titulo">Titulo *</label>
+                    <input type="text" id="titulo" required minlength="3" maxlength="120">
+                </div>
+                <div class="campo">
+                    <label for="descricao">Descricao</label>
+                    <textarea id="descricao" rows="3"></textarea>
+                </div>
+                <div class="campo">
+                    <label for="responsavel">Responsavel</label>
+                    <input type="text" id="responsavel">
+                </div>
+                <div class="campo">
+                    <label for="prioridade">Prioridade</label>
+                    <select id="prioridade">
+                        <option value="baixa">Baixa</option>
+                        <option value="media" selected>Media</option>
+                        <option value="alta">Alta</option>
+                        <option value="critica">Critica</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="prazo">Prazo</label>
+                    <input type="date" id="prazo">
+                </div>
+                <div class="acoes-form">
+                    <button type="button" id="btn-cancelar">Cancelar</button>
+                    <button type="submit" id="btn-salvar">Salvar</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
