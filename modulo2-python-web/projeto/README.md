@@ -8,10 +8,6 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-00bfe3?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 ----------
 
-## O que você deve implementar
-
-Trabalhando nos arquivos da pasta `projeto`, adicione as seguintes funcionalidades à API de Tarefas.
-
 ### Clone o repositório
 
 ```
@@ -19,6 +15,11 @@ git clone https://github.com/MMVonnSeek/dev-sistemas.git
 cd modulo2-python-web
 cd projeto
 ```
+
+
+## O que você deve implementar
+
+Trabalhando nos arquivos da pasta `projeto`, adicione as seguintes funcionalidades à API de Tarefas.
 
 ----------
 
