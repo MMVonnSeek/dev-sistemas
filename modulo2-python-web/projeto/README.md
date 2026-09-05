@@ -139,25 +139,12 @@ Listar comentários
 
 ## Requisitos Técnicos
 
-Requisito
-
-Descrição
-
-**Ordem das rotas**
-
-`/tarefas/prioridade/critica` e `/tarefas/responsavel/{nome}` DEVEM vir **antes** de `/tarefas/{tarefa_id}`
-
-**Validador de tags**
-
-Usar `set()` para remover duplicatas e retornar `list`
-
-**Status cancelado**
-
-`PATCH /tarefas/{tarefa_id}/status` deve retornar `400` se tentar mudar tarefa cancelada
-
-**Testes**
-
-Testar todas as novas rotas no Swagger antes de atualizar o front-end
+| Requisito | Descrição |
+| ------------ | -------- |
+| **Ordem das rotas** | `/tarefas/prioridade/critica` e `/tarefas/responsavel/{nome}` DEVEM vir **antes** de `/tarefas/{tarefa_id}` |
+| **Validador de tags** | Usar `set()` para remover duplicatas e retornar `list` |
+| **Status cancelado** | `PATCH /tarefas/{tarefa_id}/status` deve retornar `400` se tentar mudar tarefa cancelada |
+| **Testes** | Testar todas as novas rotas no Swagger antes de atualizar o front-end |
 
 ----------
 
