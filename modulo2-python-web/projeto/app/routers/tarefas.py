@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Path, Query, Response
 from typing import Annotated, Optional
-from app.models import TarefaEntrada, TarefaSaida, TarefaParcial
+from app.models import TarefaEntrada, TarefaSaida, TarefaParcial, MudancaStatus
 from app.models import StatusEnum, PrioridadeEnum
 
 router = APIRouter(prefix='/tarefas', tags=['Tarefas'])
@@ -41,6 +41,39 @@ def listar(
     if responsavel: resultado = [t for t in resultado if responsavel.lower() in (t.responsavel or '').lower()]
     inicio = (pagina - 1) * limite
     return resultado[inicio : inicio + limite]
+
+@router.get('/responsavel/{nome}', response_model=list[TarefaSaida])
+def por_responsavel(
+    nome: Annotated[str, Path(min_length=2, description='Nome do responsavel')]
+):
+    resultado = [t for t in banco if nome.lower() in (t.responsavel or'').lower()]
+    if not resultado:
+        raise HTTPException(status_code=404, detail=f'Nenhuma tarefa encontrada')
+    return resultado
+
+@router.get('/prioridade/critica', response_model=list[TarefaSaida])
+def listar_criticas():
+    return [
+        t for t in banco
+        if t.prioridade == PrioridadeEnum.critica
+        and t.status not in (StatusEnum.concluida, StatusEnum.cancelada)
+    ]
+
+@router.patch('/{tarefa_id}/status', response_model=TarefaSaida)
+def mudar_status(
+    tarefa_id: Annotated[int, Path(ge=1)],
+    dados: MudancaStatus
+):
+    for i, t in enumerate(banco):
+        if t.id == tarefa_id:
+            if t.status == StatusEnum.cancelada and dados.status != StatusEnum.cancelada:
+                raise HTTPException(status_code=400, datail='Tarefas canceladas,'
+                'não podem ser alteradas')
+            atual = t.model_dump()
+            atual['status'] = dados.status
+            banco[i] = TarefaSaida(**atual)
+            return banco[i]
+        raise HTTPException(status_code=404, detail='Tarefa não encontrada')
 
 # GET /tarefas/{tarefa_id}
 @router.get('/{tarefa_id}', response_model=TarefaSaida, summary='Busca uma tarefa pelo ID')

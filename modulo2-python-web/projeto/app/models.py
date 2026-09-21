@@ -5,34 +5,35 @@ from datetime import date
 
 # Enums
 class StatusEnum(str, Enum):
-    pendente     = 'pendente'
+    pendente = 'pendente'
     em_andamento = 'em_andamento'
-    concluida    = 'concluida'
-    cancelada    = 'cancelada'
+    concluida = 'concluida'
+    cancelada = 'cancelada'
 
 class PrioridadeEnum(str, Enum):
-    baixa   = 'baixa'
-    media   = 'media'
-    alta    = 'alta'
+    baixa = 'baixa'
+    media = 'media'
+    alta = 'alta'
     critica = 'critica'
 
 # Schema de entrada 
 class TarefaEntrada(BaseModel):
     model_config = ConfigDict(
         json_schema_extra={'example': {
-            'titulo':      'Implementar autenticacao JWT',
-            'descricao':   'Adicionar login com token na API',
+            'titulo': 'Implementar autenticacao JWT',
+            'descricao': 'Adicionar login com token na API',
             'responsavel': 'Carlos Silva',
-            'prioridade':  'alta',
-            'prazo':       '2025-12-31'
+            'prioridade': 'alta',
+            'prazo': '2025-12-31'
         }}
     )
-    titulo:      str
-    descricao:   Optional[str]       = None
-    responsavel: Optional[str]        = None
-    prioridade:  PrioridadeEnum       = PrioridadeEnum.media
-    status:      StatusEnum           = StatusEnum.pendente
-    prazo:       Optional[date]       = None
+    titulo: str
+    descricao: Optional[str] = None
+    responsavel: Optional[str] = None
+    prioridade: PrioridadeEnum = PrioridadeEnum.media
+    status: StatusEnum = StatusEnum.pendente
+    prazo: Optional[date] = None
+    tags: list[str] = []
 
     @field_validator('titulo')
     @classmethod
@@ -54,21 +55,44 @@ class TarefaEntrada(BaseModel):
             return v.title()
         return v
 
+    @field_validator('tags')
+    @classmethod
+    def validar_tags(cls, v:list[str]) -> list[str]:
+        vistas = set()
+        resultado = []
+        for tag in v:
+            tag = tag.strip().lower()
+            if tag and tag not in vistas:
+                vistas.add(tag)
+                resultado.append(tag)
+        return resultado
+
 # Schema de saida
 class TarefaSaida(BaseModel):
-    id:          int
-    titulo:      str
-    descricao:   Optional[str]  = None
-    responsavel: Optional[str]  = None
-    prioridade:  PrioridadeEnum
-    status:      StatusEnum
-    prazo:       Optional[date] = None
+    id: int
+    titulo: str
+    descricao: Optional[str] = None
+    responsavel: Optional[str] = None
+    prioridade: PrioridadeEnum
+    status: StatusEnum
+    prazo: Optional[date] = None
+    tags: list[str] = []
+criado_em: date = None
+
+def __init__(self, **data):
+    if 'criado_em' not in data or data['criado_em'] in None:
+        data['criado_em'] = date.today()
+    super().__init__(**data)
 
 # Schema para atualizacao parcial
 class TarefaParcial(BaseModel):
-    titulo:      Optional[str]            = None
-    descricao:   Optional[str]            = None
-    responsavel: Optional[str]            = None
-    prioridade:  Optional[PrioridadeEnum] = None
-    status:      Optional[StatusEnum]     = None
-    prazo:       Optional[date]           = None
+    titulo: Optional[str] = None
+    descricao: Optional[str] = None
+    responsavel: Optional[str] = None
+    prioridade: Optional[PrioridadeEnum] = None
+    status: Optional[StatusEnum] = None
+    prazo: Optional[date] = None
+
+# Modelo para mudança de status
+class MudancaStatus(BaseModel):
+    status: StatusEnum
