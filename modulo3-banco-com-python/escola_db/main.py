@@ -1,5 +1,6 @@
-from app.database import engine, 
-from app import 
+from app.database import engine, Base
+from app import models
 from app.seed import popular_banco
-.metadata._all(bind=engine)
+Base.metadata.create_all(bind=engine)
 popular_banco()
+print('Tabelas criadas!')
