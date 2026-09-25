@@ -1,5 +1,9 @@
 from app.database import SessionLocal
+<<<<<<< HEAD
 from app.models import Departamento, Cargo, Funcionario
+=======
+from app.models import Departamento, Cargo
+>>>>>>> d084443bc33379b9f5cd2d19e8ff9f1437f6eed1
 
 def popular_banco():
     db = SessionLocal()   # abrir sessão
@@ -23,6 +27,7 @@ def popular_banco():
             Cargo(titulo='Analista RH', nivel='Pleno', salario_min=3500, salario_max=6000),
         ])
 
+<<<<<<< HEAD
         db.add_all([
             Funcionario(nome='Carlos Silva', email='carlos@empresa.com', salario=4500.0),
             Funcionario(nome='Ana Lima', email='ana@empresa.com', salario=3800.0),
@@ -32,6 +37,10 @@ def popular_banco():
 
         db.commit()     # confirma tudo no banco de uma vez
         print(f'Funcionarios inseridos!')
+=======
+        db.commit()     # confirma tudo no banco de uma vez
+        print('Banco preenchido com sucesso')
+>>>>>>> d084443bc33379b9f5cd2d19e8ff9f1437f6eed1
 
     except Exception as erro:
         db.rollback()   # desfaz tudo se der erro

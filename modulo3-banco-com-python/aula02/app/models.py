@@ -23,6 +23,7 @@ class Cargo(Base):
     ativo = Column(Boolean, default=True)
 
     def __repr__(self):
+<<<<<<< HEAD
         return f'<Cargo {self.titulo} {self.nivel}>'
 
 class Funcionario(Base):
@@ -37,3 +38,6 @@ class Funcionario(Base):
     
     def __repr__(self):
         return f'<Funcionario id={self.id} nome={self.nome}>'
+=======
+        return f'<Cargo {self.titulo} {self.nivel}>'
+>>>>>>> d084443bc33379b9f5cd2d19e8ff9f1437f6eed1
