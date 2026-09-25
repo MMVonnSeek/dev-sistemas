@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula: Remoção e Delegação de Eventos</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px; margin: 5px 0; background: #f0f0f0; cursor: pointer; }
+    button { margin: 5px 0; padding: 5px 10px; cursor: pointer; }
+    .section { margin-bottom: 30px; }
+    .info { font-size: 0.9em; color: #555; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Exemplos: Remoção de Elementos e Delegação de Eventos</h1>
+
+  <!-- Seção 1: Duplo clique -->
+  <div class="section">
+    <h2>1 Duplo Clique</h2>
+    <p class="info">Clique duas vezes neste parágrafo para disparar um evento.</p>
+    <p id="duploClique">Texto para duplo clique</p>
+  </div>
+
+  <!-- Seção 2: Remoção de elementos -->
+  <div class="section">
+    <h2>2 Remoção de Elementos</h2>
+    <ul id="lista">
+      <li id="item1">Item 1</li>
+      <li id="item2">Item 2</li>
+      <li id="item3">Item 3</li>
+    </ul>
+    <button id="btnRemoverItem2">Remover Item 2</button>
+  </div>
+
+  <!-- Seção 3: Delegação de eventos -->
+  <div class="section">
+    <h2>3 Delegação de Eventos</h2>
+    <p class="info">Clique em qualquer tarefa para removê-la. Novas tarefas podem ser adicionadas com o botão abaixo.</p>
+    <button id="btnAdicionarTarefa">Adicionar Tarefa</button>
+    <ul id="tarefas">
+      <li>Tarefa 1</li>
+      <li>Tarefa 2</li>
+      <li>Tarefa 3</li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

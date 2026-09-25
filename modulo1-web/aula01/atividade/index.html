@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Sistema de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabecalho do sistema -->
+    <header>
+        <h1>Sistema de Cadastro — SENAI</h1>
+    </header>
+    <!-- Conteudo principal centralizado -->
+    <main>
+        <section class="caixa-login">
+            <h2>Entrar no sistema</h2>
+            <form id="form-login" action="#" method="post" novalidate>
+                <!-- Campo de e-mail -->
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="seu@email.com"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+                <!-- Campo de senha -->
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Minimo 6 caracteres"
+                        required
+                        minlength="6"
+                        autocomplete="current-password"
+                    >
+                </div>
+                <!-- Lembrar de mim -->
+                <div class="campo-inline">
+                    <label>
+                        <input type="checkbox" name="lembrar" id="lembrar">
+                        Lembrar de mim
+                    </label>
+                </div>
+                <!-- Botao de submit -->
+                <button type="submit" class="btn-entrar">Entrar</button>
+                <!-- Link de recuperacao -->
+                <a href="recuperar.html" class="link-recuperar">
+                    Esqueci minha senha
+                </a>
+            </form>
+        </section>
+    </main>
+    <!-- Rodape -->
+    <footer>
+        <p>SENAI SIG-DF &copy; 2026</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { --vm:#C8102E; --az:#2E5FAC; --tx:#1A1A2E; --fd:#F4F4F4; --bd:#CCCCCC; --r:8px; }
+body { font-family:'Segoe UI',sans-serif; background:var(--fd); color:var(--tx); }
+header { background:var(--vm); color:white; padding:1rem 2rem;
+          display:flex; align-items:center; justify-content:space-between; }
+header h1 { font-size:1.4rem; }
+.resumo { font-size:0.88rem; opacity:0.85; }
+main { max-width:1100px; margin:1.5rem auto; padding:0 1.5rem; }
+.painel-filtros { display:flex; gap:0.8rem; align-items:center;
+                   margin-bottom:1.2rem; flex-wrap:wrap; }
+.painel-filtros select { padding:0.45rem 0.7rem; border:1.5px solid var(--bd);
+                          border-radius:var(--r); font-size:0.9rem; }
+.painel-filtros button { padding:0.45rem 1rem; border:none; border-radius:var(--r);
+                          cursor:pointer; font-weight:600; font-size:0.9rem; }
+#btn-filtrar { background:var(--az); color:white; }
+#btn-nova    { background:var(--vm); color:white; margin-left:auto; }
+.estado { text-align:center; padding:3rem; color:#666; }
+.estado-erro { color:var(--vm); }
+.hidden { display:none !important; }
+.grade { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
+.card-tarefa { background:white; border-radius:var(--r); padding:1.2rem;
+                box-shadow:0 2px 8px rgba(0,0,0,0.08); border-left:4px solid var(--bd);
+                display:flex; flex-direction:column; gap:0.5rem; }
+.card-tarefa.alta    { border-left-color:#F59E0B; }
+.card-tarefa.critica { border-left-color:var(--vm); }
+.card-tarefa.baixa   { border-left-color:var(--az); }
+.card-titulo { font-weight:bold; font-size:0.95rem; }
+.card-desc   { font-size:0.85rem; color:#555; }
+.card-meta   { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.3rem; }
+.badge { font-size:0.75rem; padding:2px 8px; border-radius:10px; font-weight:600; }
+.badge-pendente     { background:#FEF3C7; color:#92400E; }
+.badge-em_andamento { background:#DBEAFE; color:#1E40AF; }
+.badge-concluida    { background:#D1FAE5; color:#065F46; }
+.badge-cancelada    { background:#F3F4F6; color:#6B7280; }
+.card-acoes { display:flex; gap:0.5rem; margin-top:auto; padding-top:0.8rem; }
+.btn-concluir { flex:1; padding:0.35rem; background:var(--az); color:white;
+                 border:none; border-radius:var(--r); cursor:pointer; font-size:0.82rem; }
+.btn-deletar  { padding:0.35rem 0.7rem; background:#FEE2E2; color:#991B1B;
+                 border:none; border-radius:var(--r); cursor:pointer; font-size:0.82rem; }
+dialog { border:none; border-radius:var(--r); padding:2rem; width:100%; max-width:480px;
+          box-shadow:0 8px 32px rgba(0,0,0,0.2); }
+dialog::backdrop { background:rgba(0,0,0,0.4); }
+.campo { display:flex; flex-direction:column; gap:4px; margin-bottom:0.9rem; }
+.campo label { font-size:0.88rem; font-weight:600; }
+.campo input, .campo select, .campo textarea {
+    padding:0.5rem 0.7rem; border:1.5px solid var(--bd); border-radius:var(--r);
+    font-size:0.9rem; font-family:inherit; }
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    outline:none; border-color:var(--az); }
+.acoes-form { display:flex; gap:0.7rem; justify-content:flex-end; margin-top:1rem; }
+.acoes-form button { padding:0.5rem 1.2rem; border:none; border-radius:var(--r);
+                      cursor:pointer; font-weight:600; }
+#btn-cancelar { background:var(--fd); border:1.5px solid var(--bd); }
+#btn-salvar   { background:var(--vm); color:white; }
