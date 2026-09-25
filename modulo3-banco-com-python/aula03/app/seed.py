@@ -1,9 +1,7 @@
 from app.database import SessionLocal
-<<<<<<< HEAD
 from app.models import Departamento, Cargo, Funcionario
-=======
 from app.models import Departamento, Cargo
->>>>>>> d084443bc33379b9f5cd2d19e8ff9f1437f6eed1
+
 
 def popular_banco():
     db = SessionLocal()   # abrir sessão
