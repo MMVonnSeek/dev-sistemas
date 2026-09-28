@@ -2,6 +2,7 @@ from app.database import engine, Base, SessionLocal
 from app import models # importar para registrar os modelos na Base
 from app.seed import popular_banco
 from app.crud import criar_funcionario, listar_funcionarios, buscar_funcionario, atulizar_funcionario, desativar_funcionario
+from app.crud import criar_departamento, listar_departamentos, atualizar_departamento, desativar_departamento
 
 # create_all: cria as tabelas que não existem ainda
 # Se a tabela já existe: não apaga, não muda nada
@@ -33,5 +34,22 @@ try:
 
     ativo = listar_funcionarios(db, apenas_ativos=True)
     print(f'Ativos restantes: {len(ativo)}')
+
+# Atividade - CRUD de Departamentos 
+# Criar
+    novo = criar_departamento(db, 'Jurídico', 'JUR')
+    print(f'Criado: {novo.nome} ({novo.sigla})')
+
+# Listar
+    todos = listar_departamentos(db)
+    print(f'Total: {len(todos)} departamentos')
+
+# Atualizar
+    atualizado = atualizar_departamento(db, novo.id, 'Jurídico e Compliance')
+    print(f'Atualizado: {atualizado.nome}')
+
+# Desativar
+    desativado = desativar_departamento(db, novo.id)
+    print(f'Desativado: {desativado.nome} -- ativo={desativado.ativo}')
 finally:
     db.close()

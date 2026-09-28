@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.models import Funcionario
+from app.models import Funcionario, Departamento
 
 # CREATE - Criar um novo funcionário
 def criar_funcionario(db: Session, nome: str, email: str, salario: float):
@@ -66,3 +66,34 @@ def desativar_funcionario(db: Session, funcionario_id: int):
     func.ativo = False  # Soft delete: só muda o campo
     db.commit()
     return func
+
+# Atividade - CRUD de Departamentos 
+def criar_departamento(db, nome, sigla):
+    existe = db.query(Departamento).filter(Departamento.sigla == sigla).first()
+    if existe: raise ValueError(f'Sigla {sigla} já cadastrada')
+    novo = Departamento(nome=nome, sigla=sigla)
+    db.add(novo); 
+    db.commit(); 
+    db.refresh(novo)
+    return novo
+
+def listar_departamentos(db):
+    return db.query(Departamento).order_by(Departamento.nome).all()
+
+def buscar_depto_por_id(db, depto_id):
+    return db.query(Departamento).filter(Departamento.id == depto_id).first()
+
+def atualizar_departamento(db, depto_id, nome):
+    depto = buscar_depto_por_id(db, depto_id)
+    if not depto: raise ValueError(f'Departamento {depto_id} não encontrado')
+    depto.nome = nome; 
+    db.commit(); 
+    db.refresh(depto)
+    return depto
+
+def desativar_departamento(db, depto_id):
+    depto = buscar_depto_por_id(db, depto_id)
+    if not depto: raise ValueError(f'Departamento {depto_id} não encontrado')
+    depto.ativo = False; 
+    db.commit()
+    return depto
