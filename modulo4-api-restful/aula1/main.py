@@ -1,4 +1,4 @@
-from fastapi import FasAPI
+from fastapi import FastAPI
 from database import engine, Base
 from router import router as produto_router
 
