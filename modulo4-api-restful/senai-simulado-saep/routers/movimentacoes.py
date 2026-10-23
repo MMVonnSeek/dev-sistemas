@@ -41,6 +41,13 @@ def criar(dados: MovimentacaoCreate, db: Session = Depends(get_db)):
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
+
+
+
+
+
+
+
     # DESAFIO: verifica estoque para saída
     if dados.tipo == "saida":
         if produto.quantidade_estoque < dados.quantidade:

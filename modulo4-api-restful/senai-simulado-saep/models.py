@@ -9,7 +9,7 @@ class Usuario(Base):
     nome = Column(String(100), nullable=False)
     login = Column(String(50), unique=True, nullable=False)
     perfil = Column(String(20), nullable=False)
-
+    senha_hash = Column(String(250), nullable=False)
 
 class Produto(Base):
     __tablename__ = "produtos"
