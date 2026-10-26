@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 
 app = FastAPI(title='API de Tarefas', version='1.0.0')
@@ -26,6 +26,15 @@ def encontrar_tarefa(tarefa_id: int):
     if tarefa is None:
         raise HTTPException(status_code=404, detail=f'Tarefa {tarefa_id} não encontrada')
     return tarefa
+
+# ============================
+# AUTENTICAÇÃO 
+# Rota POST auth/registro
+
+# Rota POST auth/login
+
+
+# ============================
 
 @app.get('/tarefas')
 def listar(): return tarefas
