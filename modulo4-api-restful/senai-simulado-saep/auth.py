@@ -20,8 +20,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 # Funções de senha
 # Transforma a senha em hash bcrypt para salvar no banco
-def hash_senha(senha: str) -> str:
-    return pwd_context(senha)
+def hash_senha(senha: str)-> str:
+    return pwd_context.hash(senha)
 
 # Compara a senha digitada com o hash do banco
 def verificar_senha(senha: str, hash_salvo: str) -> bool:
@@ -30,7 +30,7 @@ def verificar_senha(senha: str, hash_salvo: str) -> bool:
 
 # Funções do token
 # Gera o JWT com o login do usuário e data de expiração
-def criar_token(dados: dict) -> str:
+def criar_token(dados: dict)-> str:
     payload = dados.copy()
     expira = datetime.utcnow() + timedelta(minutes=EXPIRE_MIN)
     payload.update({"exp": expira})
@@ -57,57 +57,3 @@ def usuario_logado(
     if not usuario:
         raise HTTPException(status_code=401, detail="Usuário não encontrado")
     return usuario
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

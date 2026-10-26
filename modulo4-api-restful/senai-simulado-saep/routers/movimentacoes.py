@@ -3,7 +3,8 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import Optional
 from database import get_db
-from models import Movimentacao, Produto, Usuario
+from auth import usuario_logado
+from models import Movimentacao, Produto, Usuario as ModelUsuario
 
 router = APIRouter(prefix="/movimentacoes", tags=["Movimentacoes"])
 
@@ -17,7 +18,8 @@ class MovimentacaoCreate(BaseModel):
 
 
 @router.get("/")
-def listar(db: Session = Depends(get_db)):
+def listar(db: Session = Depends(get_db),
+           atual: ModelUsuario = Depends(usuario_logado)):
     return db.query(Movimentacao).all()
 
 
@@ -30,7 +32,8 @@ def buscar(movimentacao_id: int, db: Session = Depends(get_db)):
 
 
 @router.post("/", status_code=201)
-def criar(dados: MovimentacaoCreate, db: Session = Depends(get_db)):
+def criar(dados: MovimentacaoCreate, db: Session = Depends(get_db),
+           atual: ModelUsuario = Depends(usuario_logado)):
     # Valida produto
     produto = db.query(Produto).filter(Produto.id == dados.produto_id).first()
     if not produto:
