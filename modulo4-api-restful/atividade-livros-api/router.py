@@ -12,7 +12,13 @@ router = APIRouter(prefix='/livros', tags=['Livros'])
 def listar(db: Session = Depends(get_db)):
     return db.query(Livro).filter(Livro.disponivel == True).all()
 
-@router.get('/{livro_id}', response_model=LivroResponse)
+@router.get('/{livro_id}', response_model=LivroResponse,
+            tags=['Livros'],
+            summary='Buscar livro por ID',
+            responses={
+                200: {'description':'Livro encontrado'},
+                404: {'description':'Livro não encontrado'},
+            })
 def buscar(livro_id: int, db: Session = Depends(get_db)):
     livro = db.query(Livro).filter(Livro.id == livro_id).first()
     if not livro: raise HTTPException(404, 'Livro não encontrado')
