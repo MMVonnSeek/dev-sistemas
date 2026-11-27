@@ -8,7 +8,6 @@ class Plataforma(Base):
 
     id   = Column(Integer, primary_key=True, index=True)
     nome = Column(String(50), unique=True, nullable=False)
-
     jogos = relationship("Jogo", back_populates="plataforma")
 
 
