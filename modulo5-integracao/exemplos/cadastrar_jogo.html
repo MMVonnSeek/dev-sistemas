@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Games - Cadastrar Jogo</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #16213e;
+            padding: 40px;
+            border-radius: 12px;
+            width: 420px;
+            box-shadow: 0 4px 20px black;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e94560;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid black;
+            border-radius: 6px;
+            background-color: #0f3460;
+            color: #ffffff;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e94560;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: red;
+        }
+        .erro {
+            color:#ff6b81;
+            font-size: 12px;
+            margin-top: -14px;
+            margin-bottom: 16px;
+        }
+        .sucesso {
+            color: #2ecc71;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Jogo</h1>
+        <form id="form-jogo">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" placeholder="Ex: GTA VI">
+            <p class="erro" id="erro-titulo"></p>
+
+            <label for="genero">Gênero</label>
+            <input type="text" id="genero" placeholder="Ex: Ação">
+
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" placeholder="Ex: 449.90" step="0.01">
+            <p class="erro" id="erro-preco"></p>
+
+            <label for="plataforma">Plataforma</label>
+            <select id="plataforma">
+                <option value="">-- Selecione --</option>
+                <option value="1">Playstation 5</option>
+                <option value="2">XBox Series X</option>
+                <option value="3">PC</option>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p class="sucesso" id="mensagem-sucesso"></p>
+    </div>
+    <script>
+        const form = document.getElementById("form-jogo");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Limpar mensagens anteriores
+            document.getElementById("erro-titulo").textContent = "";
+            document.getElementById("erro-preco").textContent = "";
+            document.getElementById("mensagem-sucesso").textContent = "";
+
+            // Ler valores
+            const titulo = document.getElementById("titulo").value.trim();
+            const preco = parseFloat(document.getElementById("preco").value);
+
+            // Validar
+            let valido = true;
+
+            if (titulo === "") {
+                document.getElementById("erro-titulo").textContent = 
+                "O título é obrigatório";
+                valido = false;
+            }
+            if (isNaN(preco) || preco <= 0) {
+                document.getElementById("erro-preco").textContent = 
+                "Informe um preço válido";
+                valido = false;
+            }
+            // Se passou em tudo
+            if (valido) {
+                console.log("Dados válidos", { titulo, preco});
+                document.getElementById("mensagem-sucesso").textContent = 
+                `Jogo "${titulo}" pronto para cadastrar`;
+            }
+        });
+    </script>
+</body>
+</html>

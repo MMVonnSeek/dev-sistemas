@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório JS</title>
+</head>
+<body>
+    <h1 id="titulo-pagina">Laboratório JS</h1>
+
+    <form id="form-cadastro">
+        <input type="text" id="titulo" placeholder="Titulo">
+        <input type="number" id="preco" placeholder="Preço">
+        <button type="submit" id="btn-cadastrar">Cadastrar</button>
+    </form>
+    <input type="text" id="nome" placeholder="Nome">
+    <u id="lista-jogos"></u>
+    <p id="mensagem">Mensagem</p>
+
+    <script>
+        //Tipos de saída no console
+        //console.log("Mensagem normal");
+        //console.warn("Aviso - aparece em amarelo");
+        //console.error("Erro - aparece em vermelho");
+
+        // Exibir valores de variáveis
+        //let nome = "God of War";
+        //let preco = 299.90;
+        //console.log("Jogo:", nome, "- Preço:", preco);
+
+        // Template string - mais legível
+        //console.log(`Jogo: ${nome} - Preço: R$ ${preco}`);
+
+        // let - variáveis podem mudar
+        //let preco = 299.90;
+        //preco = 249.90;
+
+        // const - constante NÃO pode ser reatribuída
+        //const API_URL = "http://127.0.0.1:8000";
+
+        // Tipos de dados
+        //let titulo = "God of War";   // string - texto
+        //let preco2 = 299.90;         // number - número
+        //let disponivel = true;       // boolean - verdadeiro / falso
+        //let genero = null;           // null - ausência de valor
+
+        // Verificar o tipo
+        //console.log(typeof titulo);
+        //console.log(typeof preco2);
+        //console.log(typeof disponivel);
+
+        // Por ID - retorna UM elemento
+        //const campoTitulo = document.getElementById("titulo");
+
+        // Por Seletor CSS - retorna O PRIMEIRO que encontrar
+        //const botao = document.querySelector("button");
+        //const campo = document.querySelector("#preco");
+        //const item = document.querySelector(".destaque");
+
+        // Por Selector CSS - retorna TODOS que encontrar (NodeList)
+        //const inputs = document.querySelectorAll("input");
+
+        // Ler o valor de um input
+        //const campoNome = document.getElementById("nome");
+        //console.log(campoNome.value); // o que o usuário digitou
+
+        // Alterar o texto de um elemento
+        //const titulo = document.getElementById("titulo-pagina");
+        //titulo.textContent = "Novo título";
+
+        // Alterar o HTML interno de um elemento
+        //const list = document.getElementById("lista-jogos");
+        //lista.innerHTML = "<li>God of War</li><li>GTA VI</li>"
+
+        // Alterar estilo vis JS
+        //const mensagem = document.getElementById("mensagem");
+        //mensagem.style.color = "green";    // cor verde 
+        //mensagem.style.display = "blok";   // mostrar elemento
+        //mensagem.style.display = "none";   // esconder elemento
+
+        // Adicionar evento
+        const botao = document.getElementById("btn-cadastrar");
+
+        botao.addEventListener("click", function() {
+            console.log("Botão clicado");
+        });
+
+        // Com arrow function - mais moderno
+        botao.addEventListener("click", () => {
+            console.log("Clicado com arrow function");
+        });
+
+        // Interceptando o formulário
+        const form = document.getElementById("form-cadastro");
+
+        form.addEventListener("submit", function(event) {
+            // impede o comportamento padrão -  recarrega a página
+            event.preventDefault();
+
+            // Lê os valores dos campos
+            const titulo = document.getElementById("titulo").value;
+            const preco = document.getElementById("preco").value;
+
+            console.log("Titulo:", titulo);
+            console.log("Preço:", preco);
+        });
+    </script> 
+</body>
+</html>

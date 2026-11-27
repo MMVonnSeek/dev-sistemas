@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Games - Catálogo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topo">
+        <span class="logo">Loja de Games</span>
+        <nav>
+            <a href="index.html" class="ativo">Catálogo</a>
+            <a href="cadastrar_jogo.html">Novo jogo</a>
+            <a href="plataformas.html">Plataformas</a>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <div class="cabecalho-pagina">
+            <h1>Catálogo de Jogos</h1>
+            <a class="btn" href="cadastrar_jogo.html">+ Novo jogo</a>
+        </div>
+
+        <!-- O JavaScript escreve aqui: carregando, erro, nenhum jogo... -->
+        <p id="mensagem" class="mensagem"></p>
+
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Gênero</th>
+                    <th class="direita">Preço</th>
+                    <th>Plataforma</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <!-- O JavaScript cria uma <tr> aqui para cada jogo da API -->
+            <tbody id="tabela-jogos"></tbody>
+        </table>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/listar_jogos.js"></script>
+</body>
+</html>

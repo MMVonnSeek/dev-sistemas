@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Games - Cadastrar Jogo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topo">
+        <span class="logo">Loja de Games</span>
+        <nav>
+            <a href="index.html">Catálogo</a>
+            <a href="cadastrar_jogo.html" class="ativo">Novo jogo</a>
+            <a href="plataformas.html">Plataformas</a>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <div class="cartao estreito">
+            <h1 id="titulo-pagina">Cadastrar Jogo</h1>
+            <br>
+
+            <!-- O JavaScript escreve aqui: sucesso ou erro devolvido pela API -->
+            <p id="mensagem" class="mensagem"></p>
+
+            <form id="form-jogo">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" placeholder="Ex: GTA VI">
+                <p class="campo-erro" id="erro-titulo"></p>
+
+                <label for="genero">Gênero</label>
+                <input type="text" id="genero" placeholder="Ex: Ação">
+
+                <label for="preco">Preço (R$)</label>
+                <input type="number" id="preco" placeholder="Ex: 199.90" step="0.01">
+                <p class="campo-erro" id="erro-preco"></p>
+
+                <label for="plataforma">Plataforma</label>
+                <!-- O JavaScript cria as <option> a partir da API -->
+                <select id="plataforma">
+                    <option value="">-- Selecione --</option>
+                </select>
+                <p class="campo-erro" id="erro-plataforma"></p>
+
+                <button type="submit" id="btn-salvar" class="btn btn-bloco">Cadastrar</button>
+            </form>
+
+            <br>
+            <a class="btn btn-secundario btn-bloco" href="index.html" style="text-align:center">Voltar ao catálogo</a>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/cadastrar_jogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Games - Cadastrar Plataforma</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #16213e;
+            padding: 40px;
+            border-radius: 12px;
+            width: 420px;
+            box-shadow: 0 4px 20px black;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e94560;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid black;
+            border-radius: 6px;
+            background-color: #0f3460;
+            color: #ffffff;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e94560;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Plataforma</h1>
+        <form>
+            <label for="nome">Nome da plataforma</label>
+            <input type="text" id="nome" placeholder="Ex: Nintendo Switch">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
