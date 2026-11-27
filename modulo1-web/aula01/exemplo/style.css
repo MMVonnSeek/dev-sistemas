@@ -1,0 +1,195 @@
+/* === RESET E BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria:   #C8102E;
+    --cor-secundaria: #2E5FAC;
+    --cor-texto:      #1A1A2E;
+    --cor-fundo:      #F4F4F4;
+    --cor-borda:      #CCCCCC;
+    --raio:           8px;
+    --sombra:         0 2px 8px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* === HEADER === */
+header {
+    background: var(--cor-primaria);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 { font-size: 1.4rem; }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+nav a:hover { opacity: 1; text-decoration: underline; }
+
+/* === MAIN === */
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+section {
+    background: white;
+    border-radius: var(--raio);
+    padding: 1.5rem;
+    box-shadow: var(--sombra);
+}
+
+section h2 {
+    font-size: 1.2rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-secundaria);
+}
+
+/* === FORMULÁRIO === */
+fieldset {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--cor-secundaria);
+    padding: 0 0.5rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 0.9rem;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--raio);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(46,95,172,0.15);
+}
+
+.opcoes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.opcoes label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* === BOTÕES === */
+.acoes {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.btn-primario, .btn-secundario {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: var(--raio);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-primario {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.btn-secundario {
+    background: white;
+    border: 1.5px solid var(--cor-borda);
+    color: var(--cor-texto);
+}
+
+.btn-primario:hover, .btn-secundario:hover { opacity: 0.85; }
+
+/* === CARDS DE CADASTRO === */
+.card-cadastro {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.card-cadastro h3 {
+    font-size: 1rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 0.4rem;
+}
+
+.card-cadastro p { font-size: 0.9rem; margin-bottom: 0.3rem; }
+
+.card-cadastro time {
+    font-size: 0.8rem;
+    color: #666;
+    display: block;
+    margin-top: 0.4rem;
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #666;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--cor-borda);
+    margin-top: 2rem;
+}

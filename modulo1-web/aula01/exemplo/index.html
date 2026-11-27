@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Cadastro</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Cadastro</a>
+            <a href="#">Relatorios</a>
+        </nav>    
+    </header>
+    <main>
+       <section id="cadastro">
+            <h2>Novo Cadastro</h2>
+            <form id="form-cadastro" action="#" method="post" novalidate>
+                <fieldset>
+                    <legend>Dados Pesoais</legend>
+                    <div class="campo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome"
+                        placeholder="Ex: Carlos Silva" 
+                        required minlength="3" maxlength="100">
+                    </div>
+                    <div class="campo">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email"
+                        placeholder="Ex: carlos@email.com" required>
+                    </div>
+                    <div class="campo">
+                        <label for="nascimento">Data de Nascimento</label>
+                        <input type="date" id="nascimento" name="nascimento"
+                        max="2010-12-31">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Dados Profissionais</legend>
+                    <div class="campo">
+                        <label for="cargo">Cargo *</label>
+                        <select name="cargo" id="cargo" required>
+                            <option value="" selected disabled>Selecione...</option>
+                            <option value="dev">Desenvolvedor</option>
+                            <option value="design">Designer</option>
+                            <option value="qa">QA</option>
+                            <option value="pm">Product Manager</option>
+                    </select>
+                    </div>
+                    <div class="campo">
+                        <label for="salario">Salário pretendido (R$)</label>
+                        <input type="number" id="salario" name="salario"
+                        min="1500" step="100" placeholder="Ex: 4000">
+                    </div>
+                    <div class="campo">
+                <label>Modalidade de trabalho *</label>
+                <div class="opcoes">
+                    <label><input type="radio" name="modalidade" value="presencial" required> Presencial</label>
+                    <label><input type="radio" name="modalidade" value="hibrido"> Hibrido</label>
+                    <label><input type="radio" name="modalidade" value="remoto"> Remoto</label>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Informacoes Adicionais</legend>
+            <div class="campo">
+                <label>Habilidades</label>
+                <div class="opcoes">
+                    <label><input type="checkbox" name="skills" value="python"> Python</label>
+                    <label><input type="checkbox" name="skills" value="js"> JavaScript</label>
+                    <label><input type="checkbox" name="skills" value="sql"> SQL</label>
+                    <label><input type="checkbox" name="skills" value="git"> Git</label>
+                </div>
+            </div>
+            <div class="campo">
+                <label for="bio">Breve descricao</label>
+                <textarea
+                    id="bio"
+                    name="bio"
+                    rows="4"
+                    maxlength="300"
+                    placeholder="Conte um pouco sobre voce..."
+                ></textarea>
+            </div>
+            <div class="campo">
+                <label for="curriculo">Curriculo (PDF)</label>
+                <input type="file" id="curriculo" name="curriculo" accept=".pdf">
+                </div>
+        </fieldset>
+        <div class="acoes">
+            <button type="reset" class="btn-secundario">Limpar</button>
+            <button type="submit" class="btn-primario">Cadastrar</button>
+        </div>
+    </form>
+</section>
+                </fieldset>
+            </form>
+       </section> 
+       <section id="lista">
+            <h2>Cadastros Realizados</h2>
+            <article class="card-cadastro">
+                <h3>Carlos Silva</h3>
+                <p><strong>Cargo:</strong> Desenvolvedor</p>
+                <p><strong>Email:</strong> carlos@email.com</p>
+                <time datetime="2026-08-10">10 de agosto de 2026</time>
+            </article>
+            <article class="card-cadastro">
+        <h3>Ana Lima</h3>
+        <p><strong>Cargo:</strong> Designer</p>
+        <p><strong>Email:</strong> ana@empresa.com</p>
+        <time datetime="2025-01-16">16 de janeiro de 2025</time>
+    </article>
+
+       </section>  
+    </main>
+    <footer>
+        <p>SESI / SENAI SIG-DF &copy;2026</p>
+    </footer>
+</body>
+</html>

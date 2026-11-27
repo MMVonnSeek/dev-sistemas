@@ -1,0 +1,113 @@
+/* === RESET E VARIAVEIS === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --cor-primaria:   #C8102E;
+    --cor-secundaria: #2E5FAC;
+    --cor-texto:      #1A1A2E;
+    --cor-fundo:      #F4F4F4;
+    --cor-borda:      #CCCCCC;
+    --raio:           8px;
+}
+
+/* Layout da pagina: header, main centralizado, footer */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: var(--cor-primaria);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+header h1 { font-size: 1.3rem; }
+
+/* Main ocupa o espaco restante e centraliza o formulario */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.caixa-login {
+    background: white;
+    border-radius: var(--raio);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.caixa-login h2 {
+    font-size: 1.3rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.campo { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1rem; }
+
+.campo label { font-size: 0.9rem; font-weight: 600; }
+
+.campo input {
+    padding: 0.6rem 0.8rem;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--raio);
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(46,95,172,0.15);
+}
+
+.campo-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-entrar {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: var(--raio);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-bottom: 1rem;
+}
+
+.btn-entrar:hover { opacity: 0.87; }
+
+.link-recuperar {
+    display: block;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--cor-secundaria);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    border-top: 1px solid var(--cor-borda);
+}
